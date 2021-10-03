@@ -6,4 +6,6 @@ COPY . .
 RUN npm run build
 
 FROM nginx
-COPY --from=builder /app/build /use/share/nginx/html
+COPY --from=builder /app/build /usr/share/nginx/html
+
+# docker run -p 8080:80 6af12a0
