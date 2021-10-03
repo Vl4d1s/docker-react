@@ -7,3 +7,15 @@ before_install:
 
 script:
   - docker run -e CI=true vladismarkin/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "lmd"
+  env: "Lmd-env"
+  bucket_name: "elasticbeanstalk-us-east-2-094113103030"
+  bucket_path: "lmd"
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
